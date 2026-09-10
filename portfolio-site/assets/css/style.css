@@ -1,0 +1,66 @@
+:root {
+  --bg: #FAF9F6;          /* Alabaster */
+  --text: #1A1A1A;        /* Soft Charcoal */
+  --muted: #71717A;       /* Zinc Gray */
+  --accent: #0F766E;      /* Deep Teal */
+  --font-heading: 'Lora', serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  font-size: 16px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrap {
+  text-align: center;
+  padding: 2rem;
+}
+
+.logo {
+  font-family: 'SFMono-Regular', Consolas, monospace;
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.25;
+  font-size: 32px;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+p.tagline {
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.status {
+  margin-top: 2rem;
+  font-size: 13px;
+  color: var(--muted);
+  font-family: 'SFMono-Regular', Consolas, monospace;
+}
+
+.status::before {
+  content: "● ";
+  color: var(--accent);
+}
