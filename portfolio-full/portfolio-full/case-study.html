@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Study — Traffic Decay Triage — Shah Jahan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Plus+Jakarta+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="container">
+      <div class="logo">[FR.ml]</div>
+      <nav class="site">
+        <a href="index.html">Home</a>
+        <a href="code-sandbox.html">Code</a>
+        <a href="https://github.com/ShahJahanBrohii/ML-Internship-Flyrank" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Triaging traffic decay across 30,000+ content pages</h1>
+        <p class="sub">Replacing an arbitrary manual review process with a model that ranks pages by real decay risk.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="label">the problem</div>
+        <h2>Manual review doesn't scale past a few hundred pages</h2>
+        <p>At 30,000+ live content pages, deciding which ones are actually losing traffic — and need attention first — was being done by spot-checking and gut feel. That works at small scale and breaks completely at this one: real decay gets missed, and review time gets spent on pages that were never at risk.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="label">the ML framing</div>
+        <h2>Turn "which pages are decaying" into a ranked, scoreable problem</h2>
+        <p>The task was reframed as a supervised triage problem: given a page's traffic history and content signals, predict a decay-risk score that ranks pages for review — instead of a binary rule that either flags a page or doesn't.</p>
+        <p>Before any model, the data itself needed a contract: what fields are guaranteed to exist, what their valid ranges are, what counts as a broken record. That schema-assertion step (see the code sandbox) is what made the baseline trustworthy enough to compare against.</p>
+        <div class="proof-slot">
+          [ screenshot: executed w02_ml_task_framing.ipynb run — drop hero_notebook_proof.png here ]
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="label">the outcome</div>
+        <h2>A baseline that beats the manual rule — with numbers, not a claim</h2>
+        <p>The model's baseline precision on flagged pages beats the arbitrary manual-check rule (full comparison table in the code sandbox). That means fewer false flags eating review time, and fewer real decay cases slipping through unreviewed.</p>
+        <div class="cta-row">
+          <a class="btn" href="code-sandbox.html">View the Live Code Repository</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="container">
+      <div class="badge-slot">graduate badge — pending</div>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="https://github.com/ShahJahanBrohii" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

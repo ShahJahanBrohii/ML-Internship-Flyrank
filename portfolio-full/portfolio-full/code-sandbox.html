@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Sandbox — Traffic Decay Triage — Shah Jahan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Plus+Jakarta+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="container">
+      <div class="logo">[FR.ml]</div>
+      <nav class="site">
+        <a href="index.html">Home</a>
+        <a href="case-study.html">Case Study</a>
+        <a href="https://github.com/ShahJahanBrohii/ML-Internship-Flyrank" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>The pipeline: data contract, baseline, and the lift over manual review</h1>
+        <p class="sub">What's actually in the repo — not a description of it.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="label">data contract</div>
+        <h2>Schema assertions before anything gets modeled</h2>
+        <p>Every incoming record is checked against a contract before it reaches the model: required fields present, traffic values non-negative, timestamps parseable. Records that fail are routed out and logged instead of silently corrupting a training or scoring run.</p>
+        <pre>assert page["traffic_30d"] >= 0
+assert page["last_crawled"] is not None
+assert 0 <= page["decay_score"] <= 1</pre>
+        <p style="margin-top:0;"><span class="label" style="display:inline;">source</span> — <a href="https://github.com/ShahJahanBrohii/ML-Internship-Flyrank/blob/main/w03_data_contract.ipynb" target="_blank" rel="noopener">w03_data_contract.ipynb</a></p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="label">baseline vs. manual rule</div>
+        <h2>Precision lift on the review queue</h2>
+        <table>
+          <thead>
+            <tr><th>Approach</th><th>Precision</th><th>Pages flagged</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Manual rule (arbitrary threshold)</td><td class="metric">— baseline</td><td class="metric">—</td></tr>
+            <tr class="highlight"><td>Model baseline</td><td class="metric">— see w04_baseline_score.ipynb</td><td class="metric">—</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:13px; color:var(--muted);">Table populated from the actual run in <a href="https://github.com/ShahJahanBrohii/ML-Internship-Flyrank/blob/main/w04_baseline_score.ipynb" target="_blank" rel="noopener">w04_baseline_score.ipynb</a> — drop in the real precision numbers once the notebook's final cell is run.</p>
+        <div class="proof-slot">
+          [ performance bar chart: rule baseline vs. model precision lift — drop system_loop_diagram.png / chart image here ]
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="label">full pipeline</div>
+        <h2>Review the notebooks in order</h2>
+        <p>01 → discovery, 02 → first readable model, 03 → data contract, w02 → task framing, w04 → baseline score. Each one runs standalone and is linked from the repo README.</p>
+        <div class="cta-row">
+          <a class="btn" href="https://github.com/ShahJahanBrohii/ML-Internship-Flyrank" target="_blank" rel="noopener">Review My Machine Learning Pipeline on GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="container">
+      <div class="badge-slot">graduate badge — pending</div>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="https://github.com/ShahJahanBrohii" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
